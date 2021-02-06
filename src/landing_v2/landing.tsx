@@ -9,94 +9,139 @@ import './landing.scss';
 import achieve from '../images/achieve.png';
 import whatsappIcon from '../images/whatsappIcon.png';
 import WA_illustratration from '../images/WA_illustratration.png';
-import Group_15 from '../images/Group_15.svg';
-import Group_2479 from '../images/Group_2479.svg';
 
-import {
-  prerequisite_data,
-  who_can_join_data,
-  mentorsData,
-  webinarData,
-} from './landing_data';
+const mentorsData = [
+  {
+    name: 'Vedansh Garg',
+    company: 'Ex - HackerRank',
+    img: './mentor_ved.jpg',
+    linkedin: 'https://www.linkedin.com/in/vedanshgarg/',
+    descp: `Vedansh was a Senior Engineer at Hackerrank. In the last 5 years, he scaled the HackerRank community from 500k to 10M Developers.
 
-import { responsiveMultipleItem, responsiveSingleItem } from './landing_utils';
+      He was also part of Navgurukul a Non Profit where he has worked on curriculum, jobs pipeline, and mentoring 100+ underprivileged students on software engineering.`,
+  },
+  // {
+  //   name: 'Naman Malhotra',
+  //   company: 'Co-founded Alconomy',
+  //   img: './mentor_nam_f.jpg',
+  //   linkedin: 'https://www.linkedin.com/in/naman03malhotra/',
+  //   descp: `Hi, I am Naman Malhotra. I still remember the first line of code I wrote when I was 13. Since then, I have worked with many startup founders across the continents.
+
+  //   I co-founded two startups; one of them was in the Ed-Tech space, and the other was in blockchain fintech. In both of them, I lead the entire tech end to end and product to some extent.
+
+  //   I strongly believe that if you have the right set of skills, your background, traditional education, etc hardly matters. Given that you are ready to work your ass off.`,
+  // },
+  {
+    name: 'Sai Ahladni Tripathy',
+    company: 'Ex - Amazon',
+    img: './mentor_sai.jpg',
+    linkedin: 'https://www.linkedin.com/in/ahladini/',
+    descp: `Sai was a software developer at Amazon. She is an Alumni of BITS Pilani.
+
+      She has previously worked as a placement co-ordinator at BITS and understands the recruitment market really well.
+
+      Apart from this Sai enjoys playing with her paw-friend.`,
+  },
+];
+
+const responsiveMultipleItem = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 3,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
+const responsiveSingleItem = {
+  ...responsiveMultipleItem,
+  superLargeDesktop: {
+    ...responsiveMultipleItem.superLargeDesktop,
+    items: 1,
+  },
+  desktop: {
+    ...responsiveMultipleItem.desktop,
+    items: 1,
+  },
+  tablet: {
+    ...responsiveMultipleItem.tablet,
+    items: 1,
+  },
+};
+
+const webinarData = [
+  /* {
+    name: 'Ankit Goyal',
+    title: 'Google',
+    descp: 'Graphs Minimum Spanning Trees and Interviewing at Google',
+    img: './mentors/Ankit_goyal_google.jpeg',
+  }, */
+
+  {
+    name: 'Rohit Aggarwal',
+    title: 'Lead Engineer Hackerrank',
+    descp: 'Building scalable backends and writing Microservices',
+    img: './mentors/rohit_hackerrank.jpeg',
+  },
+
+  {
+    name: 'Abhishek Gahlot',
+    title: 'Entrepreneur, EM at EduFlow',
+    descp: 'How browsers work, V8 engine and Networking in browsers',
+    img: './mentors/Abhishek_eduflow.jpeg',
+  },
+
+  {
+    name: 'Naman Malhotra',
+    title: 'Software Engineer at HackerRank',
+    descp: `Cracking Frontend Interviews and contributing to open source`,
+    img: './mentors/naman_hackerrank.jpg',
+  },
+
+  {
+    name: 'Vaibhav Gupta',
+    title: 'Nutanix Ex- Paypal',
+    descp: `System Designing and Creating a Highly Scalable URL Shortening service`,
+    img: './mentors/vaibhav_nutanix.jpeg',
+  },
+
+  {
+    name: 'Kritarth Anand',
+    title: 'Ex-Facebook',
+    descp: 'Importance of building a brand and having the right tribe',
+    img: './mentors/kritarth_facebook.jpg',
+  },
+
+  {
+    name: 'Kumar Akshay',
+    title: 'Atlassian',
+    descp: 'Starting with Opensource, GSOC and Interning at top-tech companies',
+    img: './mentors/akshay_atlassian.jpeg',
+  },
+
+  {
+    name: ' Sudhanshu Yadav',
+    title: 'Architect at HackerRank',
+    descp: 'Projects Review, JS V8 Engine and Contributing to Brahmos',
+    img: './mentors/sudhanshu_hackerrank.jpg',
+  },
+];
 
 function Landing() {
   return (
     <div className="landing-v2">
       <Nav />
-
-      <section className="our-vision" id="our-vision">
-        <div className="headingx our-vision__heading">
-          Our <span> VISION </span>
-        </div>
-
-        <div className="our-vision__container rowx">
-          <div className="our-vision__container__left">
-            <img src={Group_15} />
-          </div>
-
-          <div className="our-vision__container__right">
-            We aim to create a complete eco systems with a tech - culture where
-            we will guide and teach students with a road map to become a
-            proficient developer in 6 months from scratch. <br /> <br />
-            Most students are unable to acquire the correct skillset and be job
-            ready for interviews just because they don't find the correct
-            guidance and atmosphere to learn. Devnest aims to revolutionise the
-            education industry by aiding this process.
-          </div>
-        </div>
-      </section>
-
-      <section className="container rowx">
-        <div className="container__left">
-          <div className="prerequisites" id="prerequisites">
-            <div className="headingx prerequisites__heading">
-              PRE<span>REQUISITES </span>
-            </div>
-
-            <ul className="prerequisites__list">
-              {prerequisite_data.map((item) => {
-                const { name, descp } = item;
-                return (
-                  <li className="prerequisites__list__item">
-                    <div>
-                      {name}
-                      <div className="prerequisites__list__item__descp">
-                        {descp ? descp : ''}
-                      </div>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          <div className="who_can_join" id="who_can_join">
-            <div className="headingx who_can_join__heading">
-              {' '}
-              Who all can <span>JOIN </span>{' '}
-            </div>
-
-            <ul className="who_can_join__list">
-              {who_can_join_data.map((item) => {
-                const { name } = item;
-                return (
-                  <li className="who_can_join__list__item">
-                    <div> {name} </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-
-        <div className="container__right">
-          {' '}
-          <img src={Group_2479} />{' '}
-        </div>
-      </section>
-
       <section className="unique" id="unique">
         <div className="headingx unique__heading">What makes us unique</div>
         <div className="unique__container">
@@ -171,10 +216,12 @@ function Landing() {
                 <img src="./unique4.svg" alt="" />
               </div>
               <div className="unique__right-side">
-                <div className="unique__right-side__heading">Peer Learning</div>
+                <div className="unique__right-side__heading">
+                  Enhancement Classes
+                </div>
                 <div className="unique__right-side__descp">
-                  Discussions and debates are the best way to learn, We
-                  encourage group collaboration and pair programming.
+                  We understand that you learn at your own pace. Our program
+                  gives you that extra boost when you are down.
                 </div>
               </div>
             </div>
@@ -295,11 +342,7 @@ function Landing() {
 
       <div id="mentors">
         <div className="headingx mentors__heading">Meet your mentors</div>
-        <Carousel
-          responsive={responsiveSingleItem}
-          showDots={true}
-          infinite={true}
-        >
+        <Carousel responsive={responsiveSingleItem}>
           {mentorsData.map((mentor) => {
             const { name, company, descp, img, linkedin } = mentor;
             return (
@@ -345,7 +388,7 @@ function Landing() {
             <img src={achieve} />
           </div>
         </div>
-        {/* <div className="plan__desc descpx">
+        <div className="plan__desc descpx">
           Interested? Registration for the 2nd batch closes on 15th November.
         </div>
 
@@ -358,7 +401,7 @@ function Landing() {
           <button className="plan__register-button btnx btnx-primary">
             Register Now
           </button>
-        </a> */}
+        </a>
       </section>
 
       <section className="community">
